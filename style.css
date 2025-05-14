@@ -564,16 +564,16 @@ a.volver:hover {
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
     margin-bottom: 20px;
-    margin-left:750px;
+    margin-left:550px;
     text-align: center;
 }
 .link a{
     font-size: 16px;
-    color:#1b0101;
+    color:#f7f3f3;
     display: block;
     margin-bottom: 10px;
     text-align: center;
-    margin-left:750px;
+    margin-left:550px;
 }
 .imagen-ubicacion {
     text-align: center; /* Centra el contenido */
@@ -586,6 +586,7 @@ a {
     font-weight: bold;
     transition: color 0.3s, text-decoration 0.3s;
 }
+
 
 /* Al pasar el mouse */
 
