@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="checkout-container">
+        <h2>Confirmación de Compra</h2>
+        <p>Gracias por tu compra. A continuación, te mostramos los detalles para realizar el pago por transferencia bancaria.</p>
+
+        <div id="detalles-compra">
+            <h3>Detalles del Pedido:</h3>
+            <ul id="lista-productos"></ul>
+            <p id="total-final" style="font-weight: bold;"></p>
+
+            <h3>Instrucciones para Transferencia Bancaria:</h3>
+            <ul>
+                <li><strong>Banco:</strong> Banco Macro</li>
+                <li><strong>CBU:</strong> 123-45678912345</li>
+                <li><strong>Cuenta a nombre de:</strong> Santiago Giustolisi</li>
+                <li><strong>CUIL del titular:</strong> 20-12345678-9</li>
+                <li><strong>Concepto de Transferencia:</strong> Compra de Camiseta de Fútbol</li>
+            </ul>
+
+            <p>Una vez realizada la transferencia, por favor, envía un mensaje de WhatsApp con el comprobante de pago.</p>
+
+            <!-- Enlace de WhatsApp para enviar el mensaje -->
+            <p>Para enviarnos el comprobante por WhatsApp, haz clic en el siguiente enlace:</p>
+            <a href="https://wa.me/5493576474062?text=Inserte%20imagen%20del%20comprobante%20de%20pago%20adjunto" target="_blank">
+                Enviar comprobante por WhatsApp
+            </a>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const listaProductos = document.getElementById("lista-productos");
+            const totalFinal = document.getElementById("total-final");
+
+            const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+            if (carrito.length === 0) {
+                listaProductos.innerHTML = "<li>No hay productos en el carrito.</li>";
+                totalFinal.textContent = "";
+                return;
+            }
+
+            let total = 0;
+
+            carrito.forEach(item => {
+                const precioNumerico = parseFloat(item.precio.toString().replace(/[^\d.-]/g, ""));
+                const subtotal = precioNumerico * item.cantidad;
+                total += subtotal;
+
+                const li = document.createElement("li");
+                li.innerHTML = `
+                    <strong>Producto:</strong> ${item.nombre} - 
+                    <strong>Cantidad:</strong> ${item.cantidad} - 
+                    <strong>Precio unitario:</strong> $${precioNumerico.toLocaleString()} ARS
+                `;
+                listaProductos.appendChild(li);
+            });
+
+            totalFinal.textContent = `Total: $${total.toLocaleString()} ARS`;
+        });
+
+        function enviarComprobante() {
+            const comprobanteInput = document.getElementById("comprobante");
+
+            if (comprobanteInput.files.length > 0) {
+                // Aquí deberías implementar el manejo del archivo para subirlo a tu servidor.
+                // Sin embargo, no se puede enviar el archivo directamente a WhatsApp usando un enlace.
+
+                alert("Comprobante enviado correctamente. Ahora, envía el comprobante por WhatsApp.");
+            }
+            return false; // Evitar el envío del formulario.
+        }
+    </script>
+    <a href="RemerasFutbol.html">Volver a la tienda</a>
+</body>
+
+</html>

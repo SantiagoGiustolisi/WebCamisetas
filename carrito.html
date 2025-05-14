@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Carrito de Compras</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            color: #333;
+        }
+    
+        h1 {
+            text-align: center;
+            margin: 30px 0;
+            color: #2c3e50;
+        }
+    
+        #detalleCarrito {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+    
+        .item-carrito {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+    
+        .item-carrito:hover {
+            transform: scale(1.02);
+        }
+    
+        .item-carrito img {
+            width: 80px;
+            height: auto;
+            border-radius: 8px;
+            margin-right: 15px;
+        }
+    
+        .item-carrito span {
+            flex-grow: 1;
+            font-size: 18px;
+        }
+    
+        .item-carrito button {
+            background-color: #e74c3c;
+            border: none;
+            color: white;
+            font-size: 16px;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+    
+        .item-carrito button:hover {
+            background-color: #c0392b;
+        }
+    
+        p {
+            text-align: center;
+            font-size: 18px;
+            color: #555;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>Carrito de Compras</h1>
+    <div id="detalleCarrito"></div>
+
+    <script>
+        const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    
+        function mostrarCarrito() {
+            const contenedor = document.getElementById("detalleCarrito");
+            contenedor.innerHTML = "";
+    
+            if (carrito.length === 0) {
+                contenedor.innerHTML = "<p>No hay productos en el carrito.</p>";
+                return;
+            }
+    
+            let total = 0;
+            let cantidadTotal = 0;
+    
+            carrito.forEach((camiseta, index) => {
+    const precio = parseFloat(String(camiseta.precio).replace(/[^\d.-]/g, '')) || 0;
+    const cantidad = parseInt(camiseta.cantidad) || 1;
+    const subtotal = precio * cantidad;
+
+    total += subtotal;
+    cantidadTotal += cantidad;
+
+    contenedor.innerHTML += `
+        <div class="item-carrito">
+            <img src="${camiseta.imagen}" alt="${camiseta.nombre}" width="100">
+            <span>${camiseta.nombre} - $${precio.toFixed(2)} c/u<br>
+            Cantidad: ${cantidad} <br>
+            Subtotal: $${subtotal.toFixed(2)}</span>
+            <div class="acciones-carrito">
+                <button onclick="eliminarDelCarrito(${index})">X</button>
+            </div>
+        </div>
+    `;
+});
+
+    
+            contenedor.innerHTML += `
+                <div style="text-align: center; margin-top: 20px;">
+                    <h3>Total: $${total.toFixed(2)}</h3>
+                    <button style="padding: 10px 20px; font-size: 16px; background-color: #27ae60; color: white; border: none; border-radius: 6px; cursor: pointer;" onclick="comprarTodo()">Comprar todo</button>
+                </div>
+            `;
+        }
+    
+        function eliminarDelCarrito(index) {
+            carrito.splice(index, 1);
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+            mostrarCarrito();
+        }
+    
+        function comprarTodo() {
+            const total = carrito.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
+            const cantidadTotal = carrito.reduce((sum, item) => sum + item.cantidad, 0);
+            const resumen = carrito.map(item => `${item.nombre} x${item.cantidad}`).join(", ");
+            
+            const url = `checkout.html?resumen=${encodeURIComponent(resumen)}&total=${total.toFixed(2)}&cantidad=${cantidadTotal}`;
+            window.location.href = url;
+        }
+    
+        document.addEventListener("DOMContentLoaded", mostrarCarrito);
+        function enviarComprobante() {
+    localStorage.removeItem("carrito");
+    alert("¡Gracias! Tu comprobante ha sido enviado.");
+    return true;
+}
+
+    </script>
+    
+    
+</body>
+</html>
+
+    <a href="RemerasFutbol.html">Volver a la tienda</a>
+</body>
+<script src="javascript.js"></script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndumentariaManía</title>
+</head>
+<body>
+    <div class="dropdown">
+        <button class="dropdown-btn">Categorías</button>
+        <div class="dropdown-content">
+          <a href="camisetasRetro.html">Camisetas Retro</a>
+          <a href="clubesEuropa.html">Clubes de Europa</a>
+        </div>
+      </div>
+    <nav class="navegacion">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="RemerasFutbol.html">Remeras de Fútbol</a></li>
+            <li><a href="carrito.html">Carrito</a></li>
+            <li><a href="Checkout.html">Checkout</a></li>
+        </ul>
+    </nav>
+    <h1>Buscar Camisetas</h1>
+    <input type="text" id="buscador" placeholder="Escribí el nombre de un equipo..." onkeyup="filtrarCamisetas()">
+
+    <div class="camisetas" id="listaCamisetas"></div>
+
+    <div id="listaCarrito"></div>
+
+
+    <!-- Contenedor donde se cargarán los productos -->
+    <div id="results"></div>
+
+    
+   
+
+    <script src="javascript.js"></script>
+    <script src="RemerasFutbol.jsonp"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <div id="modal" class="modal" style="display: none;">
+        <span class="cerrar" onclick="cerrarModal()">×</span>
+        <button class="flecha izquierda" onclick="cambiarImagen(-1)">&#10094;</button>
+        <img id="imagenModal" class="imagen-modal" src="" alt="Imagen de remera">
+        <button class="flecha derecha" onclick="cambiarImagen(1)">&#10095;</button>
+      </div>
+     
+      
+      
+</body>
+</html>

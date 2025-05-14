@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel Administrativo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+  <div id="loginAdmin">
+    <h2>Acceso exclusivo para el administrador</h2>
+    <input type="password" id="adminPass" placeholder="Ingresá la contraseña">
+    <button onclick="verificarPassword()">Ingresar</button>
+    <p id="error" style="color: red;"></p>
+  </div>
+
+  <div id="adminPanel" style="display: none;">
+    <h1>Panel Administrativo</h1>
+    <nav>
+      <ul>
+        <li><a href="#" onclick="mostrarSeccion('stock')">📦 Ver Stock</a></li>
+        <li><a href="#" onclick="mostrarSeccion('ventas')">💰 Ver Ventas</a></li>
+      </ul>
+    </nav>
+
+    <!-- Sección de Stock -->
+    <section id="stock" class="admin-section" style="display:none;">
+      <h2>Stock de Productos</h2>
+      <div id="stockContainer"></div>
+    </section>
+
+    <!-- Sección de Ventas -->
+    <section id="ventas" class="admin-section" style="display:none;">
+      <h2>Ventas Realizadas</h2>
+      <div id="ventasContainer">Cargando ventas...</div>
+
+      <!-- Formulario para realizar una venta -->
+      <h3>Realizar Venta</h3>
+      <div>
+        <label for="ventaCamiseta">Seleccionar Camiseta</label>
+        <select id="ventaCamiseta">
+          <!-- Las opciones de camisetas se agregarán dinámicamente con JavaScript -->
+        </select>
+        
+        <label for="cantidadVenta">Cantidad a Vender</label>
+        <input type="number" id="cantidadVenta" min="1" value="1">
+        
+        <button onclick="realizarVenta()">Realizar Venta</button>
+      </div>
+
+      <h3>Ventas Realizadas</h3>
+      <div id="ventasRealizadas">
+        <!-- Las ventas se mostrarán aquí -->
+      </div>
+
+      <h3>Stock Disponible</h3>
+      <div id="stockCamisetas">
+        <!-- El stock se cargará aquí dinámicamente -->
+      </div>
+      
+      <!-- Formulario para agregar stock -->
+      <h3>Agregar Stock</h3>
+      <div id="stockAgregar">
+        <!-- Aquí los productos con campos para agregar stock -->
+      </div>
+
+      <!-- Botón para vaciar las ventas -->
+      <button onclick="vaciarVentas()">Vaciar Registros de Ventas</button>
+    </section>
+
+    <!-- Sección de Pedidos -->
+    <section id="pedidos" class="admin-section" style="display:none;">
+      <h2>Pedidos</h2>
+      <div id="pedidosContainer">Cargando pedidos...</div>
+    </section>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

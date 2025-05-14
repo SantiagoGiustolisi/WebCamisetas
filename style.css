@@ -1,0 +1,789 @@
+/* Estilos generales para la página */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+/* Estilo del carrito */
+#carrito {
+    position: fixed;
+    top: 0;
+    right: -300px; /* Ocultar el carrito fuera de la pantalla */
+    width: 300px;
+    height: 100%;
+    background-color: #f1f1f1;
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    overflow-y: auto;
+    transition: right 0.3s ease; /* Transición suave para mostrar/ocultar */
+}
+/* Estilo del contenedor */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin: 20px;
+  }
+  
+  /* Botón principal */
+  .dropdown-btn {
+    background-color: #1f1f1f;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .dropdown-btn:hover {
+    background-color: #333;
+  }
+  
+  /* Contenido desplegable */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #2e2e2e;
+    min-width: 200px;
+    border-radius: 8px;
+    z-index: 1;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  }
+  
+  /* Enlaces dentro del desplegable */
+  .dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #444;
+    transition: 0.3s;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #444;
+  }
+  
+  /* Mostrar el contenido cuando se hace hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  /* style.css */
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f6f8;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+#loginAdmin, #adminPanel {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+h1, h2, h3 {
+  color: #2c3e50;
+}
+
+input[type="password"],
+input[type="number"],
+select {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+button {
+  background-color: #3498db;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  background: #ecf0f1;
+  padding: 10px 15px;
+  border-radius: 6px;
+  color: #34495e;
+  transition: background 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+  background: #3498db;
+  color: white;
+}
+
+.admin-section {
+  margin-top: 20px;
+}
+
+#stockContainer,
+#ventasContainer,
+#ventasRealizadas,
+#stockCamisetas,
+#pedidosContainer {
+  background: #fdfdfd;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+/* Estilo para los mensajes de error */
+#error {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Responsive para pantallas chicas */
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+
+  
+.modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    flex-direction: column;
+  }
+  
+  .imagen-modal {
+    width: 50vw;
+    height: 50vh;
+    object-fit: contain;
+  }
+  
+  .cerrar {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 50px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    z-index: 1001;
+  }
+  
+  .izquierda {
+    left: 20px;
+  }
+  
+  .derecha {
+    right: 20px;
+  }
+  
+
+/* Estilo para el botón */
+.toggle-carrito {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.toggle-carrito:hover {
+    background-color: #2980b9;
+}
+.checkout-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+p {
+    color: #666;
+    font-size: 1.1em;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Detalles de Compra */
+#detalles-compra {
+    margin-top: 20px;
+}
+
+#detalles-compra h3 {
+    color: #333;
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    text-align: center;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+#detalles-compra ul {
+    list-style: none;
+    padding: 0;
+}
+
+#detalles-compra li {
+    font-size: 1.1em;
+    color: #444;
+    margin: 10px 0;
+}
+
+#detalles-compra li strong {
+    color: #007bff;
+}
+
+/* Formulario para Comprobante */
+#comprobante-form {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#comprobante-form label {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#comprobante-form input[type="file"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+
+#comprobante-form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#comprobante-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .checkout-container {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    #detalles-compra h3 {
+        font-size: 1.4em;
+    }
+
+    #comprobante-form input[type="file"] {
+        max-width: 100%;
+    }
+
+    #comprobante-form button {
+        font-size: 1em;
+    }
+}
+checkout-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #444;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 8px 0;
+    font-size: 1rem;
+    color: #666;
+}
+
+ul li strong {
+    font-weight: bold;
+}
+
+/* Estilo de botones y enlaces */
+a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Enlace de WhatsApp */
+#whatsapp-link {
+    display: inline-block;
+    background-color: #25d366;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+#whatsapp-link:hover {
+    background-color: #128c7e;
+}
+
+/* Estilo para los productos */
+#lista-productos {
+    padding-left: 20px;
+}
+
+#lista-productos li {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+/* Total final */
+#total-final {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+}
+
+/* Formulario de comprobante */
+#comprobante-form {
+    margin-top: 20px;
+}
+
+#comprobante-form label {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+#comprobante-form input[type="file"] {
+    display: block;
+    margin-top: 10px;
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Volver a la tienda */
+a.volver {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+a.volver:hover {
+    background-color: #555;
+}
+
+/* Estilos para la barra de navegación */
+.navegacion {
+    background-color: #2c3e50;
+    padding: 10px 0;
+}
+
+.navegacion ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.navegacion ul li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.navegacion ul li a {
+    text-decoration: none;
+    color: #ecf0f1;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+    display: block;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Efecto al pasar el ratón sobre los enlaces */
+.navegacion ul li a:hover {
+    background-color: #3498db;
+    color: #fff;
+}
+
+/* Estilos responsivos para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .navegacion ul li {
+        display: block;
+        margin: 10px 0;
+    }
+}
+.header-txt{
+    flex-basis: 50%;
+    text-align: center;
+
+}
+.header-txt h1{
+    font-size: 90px;
+    text-transform: uppercase;
+    line-height: 1;
+    color:#111111;
+    font-family: 'Oswald' , sans-serif;
+    margin-bottom: 15px;
+}
+.header-txt p{
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+.header-img{
+    flex-basis:100%;
+    text-align: center;
+    
+}
+.footer{
+    padding: 50px 0;
+    background-color: #111111;
+}
+
+.footer-content{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.link h3{
+    font-size: 18px;
+    color:#FFFFFF;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    margin-left:750px;
+    text-align: center;
+}
+.link a{
+    font-size: 16px;
+    color:#DCDCDC;
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+    margin-left:750px;
+}
+.imagen-ubicacion {
+    text-align: center; /* Centra el contenido */
+    padding: 20px; /* Espaciado interno */
+}
+
+.imagen-ubicacion h2 {
+    font-size: 24px; /* Tamaño del título */
+    margin-bottom: 10px; /* Espaciado entre el título y la imagen */
+    color: #ffffff; /* Color del texto */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.imagen-ubicacion img {
+    width: 300px; /* Tamaño de la imagen */
+    height: 300px; /* Mantener el círculo */
+    border-radius: 50%; /* Hace la imagen redonda */
+    object-fit: cover; /* Ajusta la imagen sin deformarla */
+    border: 3px solid #333; /* Borde opcional */
+}
+/* Contenedor del producto */
+.product {
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover para el contenedor */
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para las imágenes */
+.product img {
+    max-width: 100%; /* Ajusta el tamaño de la imagen sin exceder el ancho del contenedor */
+    width: 250px; /* Define un tamaño fijo para la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    margin-bottom: 15px; /* Espacio debajo de la imagen */
+}
+
+/* Efecto hover en la imagen */
+.product img:hover {
+    transform: scale(1.05); /* Agranda la imagen un poco al hacer hover */
+}
+
+/* Estilos para los textos */
+.product p, .Precio {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 15px;
+    font-family: 'Arial', sans-serif;
+}
+
+.Precio {
+    font-weight: bold;
+    color: #ff6347;
+    font-size: 18px;
+    margin-top: 10px;
+}
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+input {
+    padding: 10px;
+    width: 300px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+.camisetas {
+    display: grid; /* Usamos grid para crear las filas */
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual tamaño */
+    gap: 20px; /* Espacio entre las camisetas */
+    justify-items: center; /* Centra las camisetas dentro de su celda */
+}
+
+.camiseta {
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 100%; /* Las camisetas ocupan todo el espacio de su celda */
+    text-align: center;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 200px; /* Limita el ancho máximo de la camiseta */
+    height: auto; /* Mantiene la proporción de la camiseta */
+}
+
+.camiseta img {
+    width: 100%; /* Ajusta la imagen al 100% del tamaño del contenedor */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+
+
+/* Estilos generales */
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#carrito {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 220px; /* achicado */
+    height: 100%;
+    background-color: #f1f1f1;
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+    padding: 15px; /* opcional: un poco menos de padding */
+    overflow-y: auto;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+
+#carrito h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.item-carrito {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.item-carrito img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.item-carrito p {
+    flex-grow: 1;
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.item-carrito button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.item-carrito button:hover {
+    background-color: #c0392b;
+}
+
+#carrito p {
+    text-align: center;
+    color: #888;
+}
+
+/* Estilo para la lista de camisetas */
+.camiseta {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #fff;
+    text-align: center;
+}
+
+.camiseta img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.camiseta h3 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #333;
+}
+
+.camiseta p {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #888;
+}
+
+.camiseta button {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.camiseta button:hover {
+    background-color: #27ae60;
+}
