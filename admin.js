@@ -219,7 +219,7 @@ function mostrarVentas() {
 
     if (historial.length > 0) {
         historial.forEach(venta => {
-            const html = `<div>🧾 ${venta.fecha} - ${venta.nombre} x${venta.cantidad} = $${venta.total}</div>`;
+            const html = `<div>🧾 ${venta.fecha} - ${venta.nombre} x${venta.cantidad}</div>`;
             container.innerHTML += html;
         });
     } else {
